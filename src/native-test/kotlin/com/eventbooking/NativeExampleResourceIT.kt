@@ -1,4 +1,4 @@
-package com.akoolla
+package com.eventbooking
 
 import io.quarkus.test.junit.NativeImageTest
 

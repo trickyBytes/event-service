@@ -1,4 +1,4 @@
-package com.akoolla
+package com.eventbooking
 
 import javax.ws.rs.GET
 import javax.ws.rs.Path
