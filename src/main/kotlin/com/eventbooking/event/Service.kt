@@ -18,11 +18,14 @@ class RepositoryBackedEventService(
     ) = EntityEvent(
         title = event.title,
         date = event.dateAndTime,
-        bookings = mutableSetOf()
+        bookings = mutableSetOf(),
+        ageRating = event.ageRating
     )
-        .apply { event.description?.let { it -> description = it } }
-        .apply { event.maxSeats?.let { it -> maxSeats = it } }
-        .apply { event.maxWheelChairs?.let { it -> maxWheelChairs = it } }
+        .apply {
+            event.description?.let { it -> description = it }
+            event.maxSeats?.let { it -> maxSeats = it }
+            event.maxWheelChairs?.let { it -> maxWheelChairs = it }
+        }
         .run { repository.persist(this) }
 
     override fun list(): List<Event.Overview> =
@@ -30,7 +33,7 @@ class RepositoryBackedEventService(
             .map { event ->
                 Event.Overview(
                     title = event.title,
-                    ageRating = "TODO",
+                    ageRating = event.ageRating,
                     dateAndTime = event.date
                 )
             }

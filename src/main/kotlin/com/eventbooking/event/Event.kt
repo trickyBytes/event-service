@@ -19,7 +19,8 @@ data class Event @BsonCreator constructor(
     @BsonProperty("maxSeats") var maxSeats: Int = 32,
     @BsonProperty("maxWheelChairs") var maxWheelChairs: Int = 2,
     @BsonProperty("bookings") val bookings: MutableSet<Booking>,
-    @BsonProperty("description") var description: String = ""
+    @BsonProperty("description") var description: String = "",
+    @BsonProperty("ageRating") var ageRating: String = "N/A"
 ) : PanacheMongoEntityBase()
 
 data class Booking @BsonCreator constructor(
